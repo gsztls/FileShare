@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta charset="UTF-8">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/private.css">
+</head>
+<body ondragstart="return false">
+	<img src="image/logo.png" alt="logo" id="logo">
+	<div id="main">
+		<div id="info">
+			<img src="image/portrait.jpg" alt="portrait" id="portrait">
+			<div id="tb">
+				<button class="button" disabled="disabled" style="cursor: no-drop;">更换头像</button>
+				<button class="button" style="margin-top: 5px;">上传文件</button>
+				<button class="button" style="margin-top: 5px;">登出</button>
+			</div>
+			<table id="detail" cellspacing="15px">
+				<tr>
+					<th>姓名：</th>
+				</tr>
+				<tr>
+					<th>学号：</th>
+				</tr>
+				<tr>
+					<th>学校：</th>
+				</tr>
+				<tr>
+					<th>学院：</th>
+				</tr>
+				<tr>
+					<th>专业：</th>
+				</tr>
+				<tr>
+					<th>班级：</th>
+				</tr>
+			</table>
+		</div>
+		<div id="upload">
+			<img src="image/up.png" alt="upload" id="up">
+			<p id="th">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp文件名&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp大小&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp类别&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp上传时间</p>
+			
+			<div id="list"></div>
+			<button class="button" style="margin-left:466px;margin-top: 8px;width:85px;">删除</div>
+		</div>
+	</div>
+</body>
+<script src="js/private.js"></script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/result.css">
+</head>
+<body ondragstart="return false">
+	<img src="image/logo.png" alt="logo" id="logo">
+	<div style="display: flex;justify-content: center;align-items: center; flex-direction: column;">
+		<table cellspacing="200px" style="position: absolute;margin-top: 180px;">
+			<tr>
+				<th>文件名</th>
+				<th>文件大小</th>
+				<th>文件类别</th>
+				<th>上传时间</th>
+			</tr>
+		</table>
+		<div style="display: flex; align-items: center;margin-top: 100px;position: absolute;">
+			<input type="text" class="input" name="search" style="margin-top: 26px;width: 650px;">
+			<input type="submit" value="搜索" class="button" style="width: 125px;">		
+		</div>
+	</div>
+</body>
+<script src="js/result.js"></script>
+</html>

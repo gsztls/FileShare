@@ -40,38 +40,23 @@ public partial class homepage_stu : System.Web.UI.Page
         dataFile.DataSourceID = null;
         dataFile.DataBind();
     }
-
     public void CheckLogin() //以下代码检测用户登录参数是否正确
     {
 
         String user = (string)Session["name"];
         DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE User ='" + user + "'");
-        if (dt.Tables[0].Rows.Count > 0)
-        {
-            Response.Redirect("homepage-stu-ok.aspx");
-        }
-    }
-
-    protected void Unnamed5_Click(object sender, EventArgs e)
-    {
-        String name = txtUser.Text.Trim(), pwd = txtPwd.Text.Trim();
-        if (name.Equals("") || pwd.Equals("") || name.Equals("UserID") || pwd.Equals("Password"))
-        {
-            Response.Write("<script>alert('用户名或密码不能为空！');location.href='homepage-stu.aspx'</script>");
-            return;
-        }
-        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[Admin] WHERE [User]='" + name + "'AND Pwd='" + pwd + "'");
         if (dt.Tables[0].Rows.Count <= 0)
         {
-            Response.Write("<script>alert('用户名或密码错误！');location.href='homepage-stu.aspx'</script>");
-            return;
+            Response.Redirect("homepage-stu.aspx");
         }
         else
         {
-            Session["name"] = name;
-            Response.Redirect("homepage-stu-ok.aspx");
+            labName.Text = "姓名：" + dt.Tables[0].Rows[0]["Name"].ToString();
+            labUser.Text = "学号：" + dt.Tables[0].Rows[0]["User"].ToString();
         }
     }
+
+   
     protected void dataNotice_ItemCommand(object source, DataListCommandEventArgs e)
     {
         if (e.CommandName.Equals("Select"))

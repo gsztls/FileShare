@@ -1,0 +1,125 @@
+body
+{
+	background-color: rgb(205,231,248);
+	height: 100%;
+	margin: 0;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+html
+{
+	height: 100%;
+}
+
+#logo
+{
+	position: absolute;
+	float: left;
+	width: 128px;
+}
+
+#main
+{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button
+{
+	float: left;
+	width: 180px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+	margin-top:  25px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+.button:hover
+{
+	background: #5599FF;
+}
+
+#info
+{
+	width: 570px;
+	height: 600px;
+	margin-right: 70px;
+	margin-left: 70px;
+}
+
+#upload
+{
+	width: 570px;
+	height: 500px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 30px;
+	border-color: rgb(163,193,219);
+	margin-right: 70px;
+	margin-left: 70px;
+	margin-top: 110px;
+}
+
+#portrait
+{
+	float: left;
+	width: 160px;
+	margin-top: 100px;
+	margin-left: 10px;
+}
+
+#tb
+{
+	display: flex;
+	flex-direction: column;
+	margin-top: 92px;
+	margin-left: 215px;
+}
+
+#detail
+{
+	margin-left: 10px;
+	margin-top: 25px;
+}
+
+#wz
+{
+	font-weight: 2px;
+}
+
+#up
+{
+	position: absolute;
+	width: 250px;
+	margin-left: 30px;
+	margin-top: -40px;
+}
+
+#th
+{
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: #A3C1DB; /* 字体颜色 */
+	font-size: 17px;
+	margin-top: 40px;
+}
+
+#list
+{
+	width: 563px;
+	height: 372px;
+	overflow: auto;
+	margin-left:4px;
+	margin-top: -10px;
+}

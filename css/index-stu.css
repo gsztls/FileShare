@@ -19,8 +19,11 @@ body
 	position: absolute;
 	float: left;
 	height: 8%;
+<<<<<<< HEAD
+=======
     top: 1px;
     left: 0px;
+>>>>>>> 9d35e99dcd52488dd20ffaf7ce9242c4ec87b834
 }
 
 #share
@@ -219,6 +222,7 @@ body
 	height: 280px;
 	margin-top: 30px;
 	margin-bottom: 30px;
+	overflow:hidden;
 }
 
 #more

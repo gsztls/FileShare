@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="homepage-stu.aspx.cs" Inherits="homepage_stu" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="homepage-tea-ok.aspx.cs" Inherits="homepage_stu" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -6,7 +6,7 @@
 <head runat="server">
 	<meta charset="UTF-8"/>
 	<script src="js/jquery-3.2.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/index-stu.css"/>
+	<link rel="stylesheet" type="text/css" href="css/homepage.css"/>
 </head>
 <body ondragstart="return false">
 	<img src="image/logo1.png" alt="logo" id="logo"/>
@@ -57,26 +57,19 @@
                 </asp:SqlDataSource>
 			</div>
 			<div id="login">
-				<asp:TextBox id="txtUser" runat="server" class="input" value="User ID" name="User ID" style="margin-top: 10px;width: 316px;" onfocus="javascript:this.style.color='#000000';if(this.value=='User ID')this.value='';" onblur="javascript:if(this.value==''){this.value='User ID';this.style.color='#CCCCCC';}"></asp:TextBox><br/>
-		    	<asp:TextBox id="txtPwd" runat="server" type="text" class="input" value="Password" name="Password" style="width: 316px;" onfocus="javascript:this.style.color='#000000';if(this.value=='Password')this.value='';" onblur="javascript:if(this.value==''){this.value='Password';this.style.color='#CCCCCC';}"></asp:TextBox> 
-				<div style="align-items: center;flex-wrap: nowrap;">
-					<asp:Button text="登录" class="button1" runat="server" onclick="Unnamed5_Click"/>
-					<asp:Button text="注册" class="button1" disabled="disabled" style="cursor: no-drop;" runat="server"/>
-					<asp:Button Text="忘记密码" class="button1" disabled="disabled" style="cursor: no-drop;" runat="server"/>
-				</div>
+				<p style="font-family: Microsoft YaHei;color: #A3C1DB;font-size: 20px;"><asp:Label ID="labName" runat="server" Text="Label"></asp:Label></p>
+				<p style="font-family: Microsoft YaHei;color: #A3C1DB;font-size: 20px;"><asp:Label ID="labUser" runat="server" Text="Label"></asp:Label></p>
+				<button class="button" style="width:300px;">登出</button>
 			</div>
 		</div>
 
 		<div id="part2">
 			<div id="b">
-            <a style="text-decoration:none;" href="homepage-tea.aspx">
-				<div id="bbb">
-					教师文件
-				</div></a>
-                <a style="text-decoration:none;" href="homepage-tea.aspx">
-				<div id="bb">
-					学生文件
-				</div></a>
+				<a style="text-decoration:none;" href="homepage-tea.aspx">
+                    <div id="bb">教师文件</div>
+                </a>
+				<a style="text-decoration:none;" href="homepage-stu.aspx">
+                <div id="bbb">学生文件</div></a>
 			</div>
 			<div id="rank">
 				<img src="image/more.png" alt="more" id="more"/>
@@ -112,7 +105,7 @@
                 </asp:DataList>
 			    <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:FileShareConnectionString %>" 
-                    SelectCommand="SELECT * FROM [FileAttributes] WHERE [UploaderType] = 'Student' ORDER BY [Time] DESC ">
+                    SelectCommand="SELECT * FROM [FileAttributes] WHERE [UploaderType] = 'Teacher' ORDER BY [Time] DESC ">
                 </asp:SqlDataSource>
 			</div>
 			</div>
@@ -120,5 +113,5 @@
 	</div>
     </form>
 </body>
-<script type="text/javascript" src="js/index-stu.js"></script>
+<script type="text/javascript" src="js/homepage.js"></script>
 </html>

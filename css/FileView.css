@@ -1,0 +1,107 @@
+body{
+	background-color: rgb(205,231,248);
+}
+
+#logo
+{
+	position: absolute;
+	float: left;
+	height: 8%;
+	margin-top: : 0;
+	margin-left: 0;
+	width: 125px;
+}
+
+#filename{
+	position: absolute;
+	height: 40px;
+	font-size: 28px;
+	font-weight: 700;
+	top:5px;
+	left: 108px;
+	top:150px;
+	overflow: hidden;
+}
+
+#uploader{
+	font-size: 12px;
+	font-weight: 400;
+	position:fixed;
+	top:45px;
+	opacity: 0.6;
+}
+
+.iframe-container{
+	position: relative; 
+	padding-bottom: 56.25%; 
+	padding-top: 30px; 
+	top: 400px;
+	height: 0; 
+	overflow: hidden;
+}
+.iframe-container iframe{
+    position: absolute;
+    left: 168;
+    top: 0;
+    width: 221px;
+    height: 221px;
+}
+
+.button1
+{
+	position: absolute;
+	width: 100px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+	right: 118px;
+	top: 10px;
+}
+.button1:hover
+{
+	background: #5599FF;
+}
+
+.button2
+{
+	position: absolute;
+	width: 100px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+	font-size: 17px; /* 字体大小 */
+	right: 9px;
+	top: 10px;
+}
+.button2:hover
+{
+	background: #5599FF;
+}
+
+#detail
+{
+	position: absolute;
+	margin-left: 85px;
+	margin-top: 200px;
+}
+
+#wz
+{
+	position: absolute;
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: black; /* 字体颜色 */
+	font-size: 17px;
+	left: 295px;
+	top: 585px;
+}

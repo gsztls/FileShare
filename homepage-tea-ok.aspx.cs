@@ -17,7 +17,7 @@ public partial class homepage_stu : System.Web.UI.Page
         dataFileBind(0);
     } 
 
-    protected void dataNoticeBind(int currentpage )
+    protected void dataNoticeBind(int currentpage)
     {
         pdsNotice.AllowPaging = true;
         pdsNotice.PageSize = 4;
@@ -34,7 +34,7 @@ public partial class homepage_stu : System.Web.UI.Page
         pdsFile.AllowPaging = true;
         pdsFile.PageSize = 12;
         pdsFile.CurrentPageIndex = currentpage;
-        DataSet dt1 = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[FileAttributes] WHERE [UploaderType]='Student' ORDER BY [Time] DESC");
+        DataSet dt1 = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[FileAttributes] WHERE [UploaderType]='Teacher' ORDER BY [Time] DESC");
         pdsFile.DataSource = dt1.Tables[0].DefaultView;
         dataFile.DataSource = pdsFile;
         dataFile.DataSourceID = null;
@@ -46,32 +46,18 @@ public partial class homepage_stu : System.Web.UI.Page
 
         String user = (string)Session["name"];
         DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE User ='" + user + "'");
-        if (dt.Tables[0].Rows.Count > 0)
+        if (dt.Tables[0].Rows.Count <= 0)
         {
-            Response.Redirect("homepage-stu-ok.aspx");
+            Response.Redirect("homepage-tea.aspx");
+        }
+        else 
+        {
+            labName.Text= "姓名："+dt.Tables[0].Rows[0]["Name"].ToString();
+            labUser.Text ="学号："+ dt.Tables[0].Rows[0]["User"].ToString();
         }
     }
 
-    protected void Unnamed5_Click(object sender, EventArgs e)
-    {
-        String name = txtUser.Text.Trim(), pwd = txtPwd.Text.Trim();
-        if (name.Equals("") || pwd.Equals("") || name.Equals("UserID") || pwd.Equals("Password"))
-        {
-            Response.Write("<script>alert('用户名或密码不能为空！');location.href='homepage-stu.aspx'</script>");
-            return;
-        }
-        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[Admin] WHERE [User]='" + name + "'AND Pwd='" + pwd + "'");
-        if (dt.Tables[0].Rows.Count <= 0)
-        {
-            Response.Write("<script>alert('用户名或密码错误！');location.href='homepage-stu.aspx'</script>");
-            return;
-        }
-        else
-        {
-            Session["name"] = name;
-            Response.Redirect("homepage-stu-ok.aspx");
-        }
-    }
+    
     protected void dataNotice_ItemCommand(object source, DataListCommandEventArgs e)
     {
         if (e.CommandName.Equals("Select"))

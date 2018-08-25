@@ -1,0 +1,37 @@
+<!DOCTYPE HTML5>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/FileView.css">
+	<title><% getFilename() %><!文件名></title>
+</head>
+<body ondragstart="return false">
+	<img src="image/logo.png" alt="logo" id="logo">
+	<button class="button1">预览放大</button>
+	<button class="button2">下载</button>
+	<div>
+		<div id="filename"><% getFilename %><!文件名></div>
+		<table id="detail" cellspacing="15px">
+				<tr>
+					<th>上传者：</th>
+				</tr>
+				<tr>
+					<th>文件大小：</th>
+				</tr>
+				<tr>
+					<th>文件类别：</th>
+				</tr>
+				<tr>
+					<th>下载次数：</th>
+				</tr>
+				<tr>
+					<th>文件介绍：</th>
+				</tr>
+				<tr>
+					<th>预览：</th>
+				</tr>
+			</table>
+	</div>
+</body>
+<script src="js/FileView.js"></script>
+</html>

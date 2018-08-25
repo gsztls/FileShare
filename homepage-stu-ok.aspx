@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="homepage-stu.aspx.cs" Inherits="homepage_stu" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="homepage-stu-ok.aspx.cs" Inherits="homepage_stu" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -57,13 +57,11 @@
                 </asp:SqlDataSource>
 			</div>
 			<div id="login">
-				<asp:TextBox id="txtUser" runat="server" class="input" value="User ID" name="User ID" style="margin-top: 10px;width: 316px;" onfocus="javascript:this.style.color='#000000';if(this.value=='User ID')this.value='';" onblur="javascript:if(this.value==''){this.value='User ID';this.style.color='#CCCCCC';}"></asp:TextBox><br/>
-		    	<asp:TextBox id="txtPwd" runat="server" type="text" class="input" value="Password" name="Password" style="width: 316px;" onfocus="javascript:this.style.color='#000000';if(this.value=='Password')this.value='';" onblur="javascript:if(this.value==''){this.value='Password';this.style.color='#CCCCCC';}"></asp:TextBox> 
-				<div style="align-items: center;flex-wrap: nowrap;">
-					<asp:Button text="登录" class="button1" runat="server" onclick="Unnamed5_Click"/>
-					<asp:Button text="注册" class="button1" disabled="disabled" style="cursor: no-drop;" runat="server"/>
-					<asp:Button Text="忘记密码" class="button1" disabled="disabled" style="cursor: no-drop;" runat="server"/>
-				</div>
+				<p style="font-family: Microsoft YaHei;color: #A3C1DB;font-size: 20px;">
+                    <asp:Label ID="labName" runat="server" Text="Label"></asp:Label></p>
+				<p style="font-family: Microsoft YaHei;color: #A3C1DB;font-size: 20px;">
+                    <asp:Label ID="labUser" runat="server" Text="Label"></asp:Label></p>
+				<button class="button" style="width:300px;">登出</button>
 			</div>
 		</div>
 

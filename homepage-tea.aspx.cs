@@ -34,13 +34,12 @@ public partial class homepage_stu : System.Web.UI.Page
         pdsFile.AllowPaging = true;
         pdsFile.PageSize = 12;
         pdsFile.CurrentPageIndex = currentpage;
-        DataSet dt1 = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[FileAttributes] WHERE [UploaderType]='Student' ORDER BY [Time] DESC");
+        DataSet dt1 = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[FileAttributes] WHERE [UploaderType]='Teacher' ORDER BY [Time] DESC");
         pdsFile.DataSource = dt1.Tables[0].DefaultView;
         dataFile.DataSource = pdsFile;
         dataFile.DataSourceID = null;
         dataFile.DataBind();
     }
-
     public void CheckLogin() //以下代码检测用户登录参数是否正确
     {
 
@@ -48,9 +47,10 @@ public partial class homepage_stu : System.Web.UI.Page
         DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE User ='" + user + "'");
         if (dt.Tables[0].Rows.Count > 0)
         {
-            Response.Redirect("homepage-stu-ok.aspx");
+            Response.Redirect("homepage-tea-ok.aspx");
         }
     }
+
 
     protected void Unnamed5_Click(object sender, EventArgs e)
     {
@@ -69,7 +69,7 @@ public partial class homepage_stu : System.Web.UI.Page
         else
         {
             Session["name"] = name;
-            Response.Redirect("homepage-stu-ok.aspx");
+            Response.Redirect("homepage-tea-ok.aspx");
         }
     }
     protected void dataNotice_ItemCommand(object source, DataListCommandEventArgs e)
