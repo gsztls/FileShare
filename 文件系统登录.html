@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta charset="UTF-8">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body ondragstart="return false">
+	<img src="image/logo.png" alt="logo" id="logo">
+	<div id="main">
+		<img src="image/share.png" alt="share" id="share">
+		<form style="display: flex;flex-direction: column;align-items: center;">
+			<input type="text" class="input" value="User ID" name="User ID" style="margin-top: 10px;" onfocus="javascript:this.style.color='#000000';if(this.value=='User ID')this.value='';" onblur="javascript:if(this.value==''){this.value='User ID';this.style.color='#CCCCCC';}"></br>
+		    <input type="text" class="input" value="Password" name="Password" onfocus="javascript:this.style.color='#000000';if(this.value=='Password')this.value='';" onblur="javascript:if(this.value==''){this.value='Password';this.style.color='#CCCCCC';}">
+			<div style="align-items: center;flex-wrap: nowrap;">
+				<input type="submit" value="登录" class="button">
+				<input type="submit" value="注册" class="button" disabled="disabled" style="cursor: no-drop;">
+				<button type="button" class="button" disabled="disabled" style="cursor: no-drop;">忘记密码</button>
+			</div>
+		</form>
+	</div>
+</body>
+<script src="js/index.js"></script>
+</html>
