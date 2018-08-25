@@ -8,14 +8,43 @@ using System.Data;
 
 public partial class homepage_stu : System.Web.UI.Page
 {
+    protected static PagedDataSource pdsNotice = new PagedDataSource();
     protected void Page_Load(object sender, EventArgs e)
     {
+        dataNoticeBind(0);
+    } 
+    protected void dataNoticeBind(int currentpage )
+    {
+        pdsNotice.AllowPaging = true;
+        pdsNotice.PageSize = 10;
+        pdsNotice.CurrentPageIndex = currentpage;
         DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[Notice]");
         dataNotice.DataSource = dt.Tables[0];
         dataNotice.DataSourceID = null;
         dataNotice.DataBind();
-
     }
+
+    //public void CheckLogin() //以下代码检测用户登录参数是否正确
+    //{
+
+    //    String user = (string)Session["name"];
+    //    DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE User ='" + user + "'AND Type = 'Student'");
+    //    if (dt.Tables[0].Rows.Count == 0)
+    //    {
+    //        Session.Abandon();
+    //        Console.Write("您的参数有误，请尝试重新登录。");
+    //        //  System.Threading.Thread.Sleep(10000); 
+    //        Response.Redirect("login.aspx");
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        DataSet dt1 = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [BookClass].[dbo].[UserInfo] WHERE StuId ='" + StuId + "'");
+    //        label_stuNum.Text = dt1.Tables[0].Rows[0][1].ToString();
+    //        label_user.Text = dt1.Tables[0].Rows[0][3].ToString();
+    //    }
+    //}
+
     protected void Unnamed5_Click(object sender, EventArgs e)
     {
         String name = txtUser.Text.Trim(), pwd = txtPwd.Text.Trim();
@@ -48,6 +77,19 @@ public partial class homepage_stu : System.Web.UI.Page
                 return;
             }
 
+        }
+    }
+    protected void dataNotice_ItemCommand(object source, DataListCommandEventArgs e)
+    {
+        if (e.CommandName.Equals("Select"))
+        {
+            String ID = dataNotice.DataKeys[e.Item.ItemIndex].ToString();
+            Response.Redirect("ShowNotice?UrlID='"+System.Web.HttpContext.Current.Server.HtmlEncode(ID)+"'");
+        }
+        switch (e.CommandName) { 
+        
+        
+        
         }
     }
 }
