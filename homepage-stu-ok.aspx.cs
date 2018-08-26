@@ -62,7 +62,7 @@ public partial class homepage_stu : System.Web.UI.Page
         if (e.CommandName.Equals("Select"))
         {
             String ID = dataNotice.DataKeys[e.Item.ItemIndex].ToString();
-            Response.Redirect("ShowNotice?UrlID='"+System.Web.HttpContext.Current.Server.HtmlEncode(ID)+"'");
+            Response.Redirect("ShowNotice.aspx?UrlID='"+System.Web.HttpContext.Current.Server.HtmlEncode(ID)+"'");
         }
         switch (e.CommandName) 
         {
@@ -127,7 +127,7 @@ public partial class homepage_stu : System.Web.UI.Page
         if (e.CommandName.Equals("Select"))
         {
             String ID = dataFile.DataKeys[e.Item.ItemIndex].ToString();
-            Response.Redirect("ShowFile?UrlID='" + System.Web.HttpContext.Current.Server.HtmlEncode(ID) + "'");
+            Response.Redirect("ShowFile.aspx?UrlID='" + System.Web.HttpContext.Current.Server.HtmlEncode(ID) + "'");
         }
         switch (e.CommandName)
         {
@@ -195,5 +195,10 @@ public partial class homepage_stu : System.Web.UI.Page
     protected void person_Click(object sender, EventArgs e)
     {
         Response.Redirect("person.aspx");
+    }
+    protected void butSelect_Click(object sender, EventArgs e)
+    {
+        string gindText = txtSelect.Text.Trim();
+        Response.Redirect("result.aspx?UrlID='" + System.Web.HttpContext.Current.Server.HtmlEncode(gindText) + "'");
     }
 }

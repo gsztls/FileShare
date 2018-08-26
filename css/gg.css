@@ -5,26 +5,36 @@ body
 	margin: 0;
 }
 
+html
+{
+	height: 100%;
+}
+
 #logo
 {
 	position: absolute;
 	float: left;
 	height: 8%;
-	margin-top: : 0;
-	margin-left: 0;
-	width: 125px;
 }
 
 #share
 {
 	height: 70px;
-	margin-top: 95px;
+	margin-bottom: 35px;
+}
+
+#main
+{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .input
 {
 	color:#CCCCCC;
-	
+	width: 270px; 
 	height: 25px;
     border: 1px solid #ccc;
     padding: 7px 0px;
@@ -47,7 +57,7 @@ body
 .button
 {
 	float: left;
-	 /* 宽度 */
+	width: 85px; /* 宽度 */
 	height: 40px; /* 高度 */
 	border-width: 0px; /* 边框宽度 */
 	border-radius: 3px; /* 边框半径 */
@@ -66,37 +76,29 @@ body
 	background: #5599FF;
 }
 
-.button1
+#head
 {
-	float: left;
-	width: 100px; /* 宽度 */
-	height: 40px; /* 高度 */
-	border-width: 0px; /* 边框宽度 */
-	border-radius: 3px; /* 边框半径 */
-	background: #1E90FF; /* 背景颜色 */
-	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
-	outline: none; /* 不显示轮廓线 */
-	font-family: Microsoft YaHei; /* 设置字体 */
-	color: white; /* 字体颜色 */
-	font-size: 17px; /* 字体大小 */
-	margin-top:  25px;
-	margin-right: 5px;
-	margin-left: 5px;
-}
-.button1:hover
-{
-	background: #5599FF;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 10px;
 }
 
-#gg
+#h
 {
-    display:flex;
-    justify-content: center;
-	border-width: 2px;
-	border-style: solid;
-	border-radius: 30px;
-	border-color: rgb(163,193,219);
-	width: 80%;
-	height: auto;
-	margin: 2px;
+	font-size: 40px;
+	font-weight: 700;
+}
+
+#time
+{
+	opacity: 0.6;
+	font-size: 14px;
+	margin-top: -20px;	
+}
+
+#content
+{
+	font-size: 16px;
+	width: 60%;
 }

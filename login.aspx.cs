@@ -30,20 +30,7 @@ public partial class login : System.Web.UI.Page
         else
         {
             Session["name"] = name;
-            if (dt.Tables[0].Rows[0]["Type"].Equals("Student")) 
-            {
-                Response.Redirect("person-stu.aspx");
-            }
-            else if (dt.Tables[0].Rows[0]["Type"].Equals("Teacher"))
-            {
-                Response.Redirect("person.aspx");
-            }
-            else 
-            {
-                Response.Write("<script>alert('登录参数错误，请核对账号密码或联系管理员。')</script>");
-                return;
-            }
-            
+            Response.Redirect("person.aspx");
         }
     }
 }

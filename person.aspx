@@ -20,7 +20,7 @@
 			<img src="image/portrait.jpg" alt="portrait" id="portrait"/>
 			<div id="tb">
 				<asp:button id="ReplacePicture" text="更换头像" runat="server" class="button" disabled="disabled" style="cursor: no-drop;"/>
-				<asp:button text="上传文件" id="Upload" runat="server" class="button" style="margin-top: 5px;" />
+				<asp:button text="上传文件" id="Upload" runat="server" class="buttonn" style="margin-top: 5px;" />
 				<asp:button text="登出" id="LogOut" runat="server" class="button" 
                     style="margin-top: 5px;" onclick="LogOut_Click"/>
 			</div>
@@ -44,13 +44,57 @@
 		</div>
 		<div id="upload">
 			<img src="image/up.png" alt="upload" id="up">
-			<p id="th">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp文件名&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp大小&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp类别&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp上传时间</p>
+			<p id="th"><br /></p>
 			
-			<div id="list"></div>
-			<button class="button" style="margin-left:466px;margin-top: 8px;width:85px;">删除</div>
-		</div>
-	</div>
+			<div id="list">
+                <asp:GridView ID="griFile" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="4" ForeColor="#333333" GridLines="None" Width="550px" 
+                    AllowPaging="True" HorizontalAlign="Center" 
+                    onpageindexchanging="griFile_PageIndexChanging" DataKeyNames="ID" 
+                    onrowdeleting="griFile_RowDeleting" onrowupdating="griFile_RowUpdating" >
+                    <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="chkFile" runat="server" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="fileName" HeaderText="文件名" 
+                            SortExpression="fileName" />
+                        <asp:BoundField DataField="fileSize" HeaderText="文件大小" 
+                            SortExpression="fileSize" />
+                        <asp:BoundField DataField="downloadCount" HeaderText="下载次数" 
+                            SortExpression="downloadCount" />
+                        <asp:BoundField DataField="Time" HeaderText="时间" SortExpression="Time" />
+                        
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Update"  >查看</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton2" runat="server" CommandName="Delete" OnClientClick="{if(confirm('确定删除？')){return true;}return false;}">删除</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField></asp:TemplateField>
+                        
+                    </Columns>
+
+                    <EditRowStyle BackColor="#2461BF" />
+                    <FooterStyle BackColor="#A3C1DB" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#A3C1DB" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#A3C1DB"  HorizontalAlign="Center" />
+                    <RowStyle BackColor="#E7EEF5" HorizontalAlign="Center" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingHeaderStyle BackColor="#A3C1DB" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                </asp:GridView>
+            </div>
+            <div>
+                <asp:CheckBox Text="全选" style="margin-left:27px;" ID="ChkAll" runat="server" 
+                    oncheckedchanged="ChkAll_CheckedChanged" AutoPostBack="True" />
+			<asp:button runat="server" Text="批量删除" class="button" style="margin-left:466px;margin-top: -20px;width:85px;" OnClientClick="{if(confirm('确定删除选中内容？')){return true;}return false;}"/></div></div>
     </form>
 </body>
-<script src="js/private.js"></script>
+<script type="text/javascript" src="js/private.js"></script>
 </html>

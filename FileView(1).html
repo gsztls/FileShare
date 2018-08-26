@@ -1,0 +1,26 @@
+<!DOCTYPE HTML5>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/FileView.css">
+	<title><% getFilename() %><!文件名></title>
+</head>
+<body ondragstart="return false">
+	<img src="image/logo.png" alt="logo" id="logo">
+	
+	<div>
+		<div id="upper">
+			<div id="filename"><% getFilename %><!文件名></div>
+			<button class="button2">下载</button>
+		</div>
+		<div id="under_filename">由上传者上传&nbsp&nbsp&nbsp&nbsp文件大小：&nbsp&nbsp&nbsp&nbsp文件类型：&nbsp&nbsp&nbsp&nbsp下载次数：&nbsp&nbsp&nbsp&nbsp上传时间：</br>这里放文件介绍</div>
+			<table id="detail" cellspacing="15px">
+				
+				<tr>
+					<th>文件预览：</th>
+				</tr>
+			</table>
+	</div>
+</body>
+<script src="js/FileView.js"></script>
+</html>

@@ -17,7 +17,7 @@
 	<div id="main">
 		<img src="image/share.png" alt="share" id="share"/>
 		<form id="login1" style="display: flex;flex-direction: column;align-items: center;" runat="server">
-			<asp:TextBox id="txtUser" class="input" value="User ID" name="User ID" style="margin-top: 10px;" onfocus="javascript:this.style.color='#000000';if(this.value=='User ID')this.value='';" onblur="javascript:if(this.value==''){this.value='User ID';this.style.color='#CCCCCC';}" runat="server"></asp:TextBox></br>
+			<asp:TextBox id="txtUser" class="input" value="User ID" name="User ID" style="margin-top: 10px;" onfocus="javascript:this.style.color='#000000';if(this.value=='User ID')this.value='';" onblur="javascript:if(this.value==''){this.value='User ID';this.style.color='#CCCCCC';}" runat="server"></asp:TextBox><br/>
 		    <asp:TextBox id="txtPwd" class="input" value="Password" name="Password" onfocus="javascript:this.style.color='#000000';if(this.value=='Password')this.value='';" onblur="javascript:if(this.value==''){this.value='Password';this.style.color='#CCCCCC';}" runat="server"></asp:TextBox>
 			<div style="align-items: center;flex-wrap: nowrap;">
 				<asp:Button text="登录" class="button" runat="server" onclick="Unnamed3_Click"/>

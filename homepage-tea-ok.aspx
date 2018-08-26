@@ -15,11 +15,11 @@
 		<img src="image/share.png" alt="share" id="share"/>
 		<div style="display: flex;align-items: center;">
 			<asp:TextBox id="txtSelect" runat="server" class="input" name="search" style="margin-top: 26px;width: 650px;"></asp:TextBox>
-			<asp:Button runat="server" text="搜索" class="button" style="width: 125px;"/>		
+			<asp:Button runat="server" text="搜索" class="button" style="width: 125px; margin-top:26px" onclick="butSelect_Click"/>		
 		</div>
 
 		<div id="part1">
-			<div id="gg">
+			<div id="gg" style="margin-left:88px">
 				<img src="image/gg.png" alt="gg" id="gongg"/>
                 <asp:DataList ID="dataNotice" runat="server" DataSourceID="SqlDataSource1" 
                     DataKeyField="ID" onitemcommand="dataNotice_ItemCommand" 
