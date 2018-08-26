@@ -59,7 +59,10 @@
 			<div id="login">
 				<p style="font-family: Microsoft YaHei;color: #A3C1DB;font-size: 20px;"><asp:Label ID="labName" runat="server" Text="Label"></asp:Label></p>
 				<p style="font-family: Microsoft YaHei;color: #A3C1DB;font-size: 20px;"><asp:Label ID="labUser" runat="server" Text="Label"></asp:Label></p>
-				<button class="button" style="width:300px;">登出</button>
+                <asp:button id="person" text="个人中心" runat="server" class="button" 
+                    style="width:115px;" onclick="person_Click"/>
+				<asp:button id="logOut" text="登出" runat="server" class="button" 
+                    style="width:115px; margin-top:10px;" onclick="logOut_Click"/>
 			</div>
 		</div>
 

@@ -45,7 +45,7 @@ public partial class homepage_stu : System.Web.UI.Page
     {
 
         String user = (string)Session["name"];
-        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE User ='" + user + "'");
+        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE [User] ='" + user + "'");
         if (dt.Tables[0].Rows.Count <= 0)
         {
             Response.Redirect("homepage-tea.aspx");
@@ -187,5 +187,14 @@ public partial class homepage_stu : System.Web.UI.Page
                 LastPage.Enabled = false;
             }
         }
+    }
+    protected void logOut_Click(object sender, EventArgs e)
+    {
+        Session["name"] = null;
+        Response.Redirect("homepage-tea.aspx");
+    }
+    protected void person_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("person.aspx");
     }
 }

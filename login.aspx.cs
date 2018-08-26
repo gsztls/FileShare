@@ -36,7 +36,7 @@ public partial class login : System.Web.UI.Page
             }
             else if (dt.Tables[0].Rows[0]["Type"].Equals("Teacher"))
             {
-                Response.Redirect("person-tea.aspx");
+                Response.Redirect("person.aspx");
             }
             else 
             {

@@ -6,7 +6,7 @@
 <head runat="server">
 	<meta charset="UTF-8"/>
 	<script src="js/jquery-3.2.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/index-stu.css"/>
+	<link rel="stylesheet" type="text/css" href="css/homepage.css"/>
 </head>
 <body ondragstart="return false">
 	<img src="image/logo1.png" alt="logo" id="logo"/>
@@ -61,7 +61,10 @@
                     <asp:Label ID="labName" runat="server" Text="Label"></asp:Label></p>
 				<p style="font-family: Microsoft YaHei;color: #A3C1DB;font-size: 20px;">
                     <asp:Label ID="labUser" runat="server" Text="Label"></asp:Label></p>
-				<button class="button" style="width:300px;">登出</button>
+				<asp:button id="person" text="个人中心" runat="server" class="button" 
+                    style="width:115px;" onclick="person_Click"/>
+                <asp:button id="logOut" text="登出" runat="server" class="button" 
+                    style="width:115px;margin-top:10px;" onclick="logOut_Click"/>
 			</div>
 		</div>
 

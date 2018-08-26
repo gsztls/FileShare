@@ -45,7 +45,7 @@ public partial class homepage_stu : System.Web.UI.Page
     {
 
         String user = (string)Session["name"];
-        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE User ='" + user + "'");
+        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT * FROM [FileShare].[dbo].[AdminInfo] WHERE [User] ='" + user + "'");
         if (dt.Tables[0].Rows.Count > 0)
         {
             Response.Redirect("homepage-stu-ok.aspx");

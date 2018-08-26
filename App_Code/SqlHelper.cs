@@ -43,7 +43,7 @@ using System.Xml;
 
     public sealed class SqlHelper
     {
-        private static string connectionString = "Data Source=(local);Initial Catalog=BookClass;Integrated Security=SSPI;Max Pool Size=15000";
+        private static string connectionString = "Data Source=(local);Initial Catalog=FileShare;Integrated Security=SSPI;Max Pool Size=15000";
         /// <summary>
         /// ConnectionStringµƒ Ù–‘
         /// </summary>
