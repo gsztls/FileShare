@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index-tea.css"/>
 </head>
 <body ondragstart="return false">
-	<img src="image/logo1.png" alt="logo" id="logo"/>
+	<img src="image/logo.png" alt="logo" id="logo"/>
     <form runat="server">
 	<div id="main">
 		<img src="image/share.png" alt="share" id="share"/>
