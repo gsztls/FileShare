@@ -10,11 +10,43 @@ public partial class upload : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            DroDataBind();
+        }
     }
   
+    protected void DroDataBind()
+    {
+         DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT DISTINCT [School] FROM [FileShare].[dbo].[ClassInfo]");
+         drpSchool.DataSource = dt.Tables[0];
+         
+         drpSchool.DataTextField = "School";
+         drpSchool.DataValueField = "School";
+         drpSchool.DataBind();
+         drpCollegeDataBind();
+         drpClassDataBind();
+         drpSchool.Items.Insert(0, "请选择学校");
+         drpCollege.Items.Insert(0, "请选择学院");
+         drpClass.Items.Insert(0, "请选择专业班级");
+
+         drpSchool2.DataSource = dt.Tables[0];
+
+         drpSchool2.DataTextField = "School";
+         drpSchool2.DataValueField = "School";
+         drpSchool2.DataBind();
+         drpSchool2.Items.Insert(0, "请选择学校");
+         drpCollege2.Items.Insert(0, "请选择学院");
+         drpClass2.Items.Insert(0, "请选择专业班级"); 
+    }
+
     protected void btnUpload_Click(object sender, EventArgs e)
     {
+        //string viewPeople = Request["vis_authority"].ToString();
+        //if(viewPeople.Equals("part1"))
+        //{
+        //    viewPeople = Request["vis_authority"].ToString();
+        //}
         string fileName = Request["fileName"].ToString();
         string fileType = Request["fileType"].ToString();
         string descrition = Request["fileDescription"].ToString();
@@ -35,7 +67,7 @@ public partial class upload : System.Web.UI.Page
             try
             {
                 string sql = "INSERT INTO [FileShare].[dbo].[FileAttributes]([fileName],[Path],[Time],[downLoadCount],[fileSize],[Description],[Type],[Uploader],[UploaderType]) VALUES ('" + fileName + "','" + savePath + "/" + System.IO.Path.GetFileName(fudFile.FileName) + "','" + Time + "','0','" + fudFile.PostedFile.ContentLength / 1024 + "MB','" + fileType + "','" + dt.Tables[0].Rows[0]["Type"].ToString() + "','" + dt.Tables[0].Rows[0]["Name"].ToString() + "')";
-                int judNum = SqlHelper.ExecuteNonQuery(CommandType.Text, "INSERT INTO [FileShare].[dbo].[FileAttributes]([fileName],[Path],[Time],[downLoadCount],[fileSize],[Description],[Type],[Uploader],[UploaderType]) VALUES ('" + System.IO.Path.GetFileName(fudFile.FileName) + "','" + savePath + "/" + System.IO.Path.GetFileName(fudFile.FileName) + "','" + Time + "','0','" + fudFile.PostedFile.ContentLength / 1024 / 1024 + "MB','"+descrition+"','" + fileType + "','" + dt.Tables[0].Rows[0]["Type"].ToString() + "','" + dt.Tables[0].Rows[0]["Name"].ToString() + "')");
+                int judNum = SqlHelper.ExecuteNonQuery(CommandType.Text, "INSERT INTO [FileShare].[dbo].[FileAttributes]([fileName],[Path],[Time],[downLoadCount],[fileSize],[Description],[Type],[Uploader],[UploaderType]) VALUES ('" + System.IO.Path.GetFileName(fudFile.FileName) + "','" + savePath + "/" + System.IO.Path.GetFileName(fudFile.FileName) + "','" + Time + "','0','" + fudFile.PostedFile.ContentLength / 1024 / 1024 + "MB','"+descrition+"','" + fileType + "','" + dt.Tables[0].Rows[0]["Name"].ToString() + "','" + dt.Tables[0].Rows[0]["Type"].ToString() + "')");
                
                 if (judNum > 0)
                 {
@@ -64,5 +96,46 @@ public partial class upload : System.Web.UI.Page
         {
             lblMessage.Text = "没有选择要上传的文件！";
         }
+    }
+    protected void drpSchool_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        drpCollegeDataBind();
+    }
+
+    public string getFilename()
+    {
+       return System.IO.Path.GetFileName(fudFile.FileName);
+    }
+    protected void drpCollegeDataBind()
+    {
+        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT DISTINCT [College] FROM [FileShare].[dbo].[ClassInfo]");
+        drpCollege.DataSource = dt.Tables[0];
+        drpCollege.DataTextField = "College";
+        drpCollege.DataValueField = "College";
+        drpCollege.DataBind();
+
+        drpCollege2.DataSource = dt.Tables[0];
+        drpCollege2.DataTextField = "College";
+        drpCollege2.DataValueField = "College";
+        drpCollege2.DataBind();
+    }
+    protected void drpCollege_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        drpClassDataBind();
+    }
+
+    protected void drpClassDataBind()
+    {
+        DataSet dt = SqlHelper.ExecuteDataset(CommandType.Text, "SELECT DISTINCT [Class] FROM [FileShare].[dbo].[ClassInfo]");
+        drpClass.DataSource = dt.Tables[0];
+        drpClass.DataTextField = "Class";
+        drpClass.DataValueField = "Class";
+        drpClass.DataBind();
+
+        drpClass2.DataSource = dt.Tables[0];
+        drpClass2.DataTextField = "Class";
+        drpClass2.DataValueField = "Class";
+        drpClass2.DataBind();
     }
 }

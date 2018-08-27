@@ -43,7 +43,7 @@
 			</table>
 		</div>
 		<div id="upload">
-			<img src="image/up.png" alt="upload" id="up">
+			<img src="image/up.png" alt="upload" id="up" />
 			<p id="th"><br /></p>
 			
 			<div id="list">

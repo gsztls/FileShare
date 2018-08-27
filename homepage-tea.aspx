@@ -114,7 +114,6 @@
 			</div>
 			</div>
 		</div>
-	</div>
     </form>
 </body>
 <script type="text/javascript" src="js/index-tea.js"></script>

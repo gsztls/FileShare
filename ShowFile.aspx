@@ -30,7 +30,7 @@
 				</tr>
 			</table>
             <script>
-                var jsUrl = "<%=getUrl() %>>";
+                var jsUrl = "<%=getUrl() %>";
                 ViewLink = "https://view.officeapps.live.com/op/view.aspx?src=" + "http://www.forfunfunfun.cn:83/" + jsUrl/*文件路径*/;
 document.write("<div class=\"iframe-container\"><iframe src="+ViewLink+" frameborder=0 allowfullscreen></iframe></div>");
             </script></div>
